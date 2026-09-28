@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | Steam de facu{% endblock %}
+{% block body %}<section class="simple-page"><h1>{{ title }}</h1><form method="post" class="app-form">{{ form.hidden_tag() }}{% for field in form if field.name not in ['csrf_token', 'submit'] %}<label>{{ field.label }}{{ field() }}{% for error in field.errors %}<small>{{ error }}</small>{% endfor %}</label>{% endfor %}{{ form.submit(class_='primary-link') }}</form>{% if title == 'Iniciar sesión' %}<p>¿No tenés cuenta? <a href="{{ url_for('register') }}">Registrate</a>.</p>{% endif %}</section>{% endblock %}

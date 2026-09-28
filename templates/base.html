@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Steam de facu{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
 
     {% include "navbar.html" %}
 
-    <div class="container">
+    <main class="container">
         {% block body %}
         {% endblock %}
-    </div>
+    </main>
+
+    <aside class="cart-panel" id="cart-panel" aria-label="Carrito de compras" aria-hidden="true">
+        <div class="cart-header"><h2>Tu carrito</h2><button class="close-cart" id="close-cart" aria-label="Cerrar carrito">&times;</button></div>
+        <div id="cart-items" class="cart-items"><p class="empty-cart">Tu carrito está vacío.</p></div>
+        <div class="cart-footer"><p>Total <strong id="cart-total">$0</strong></p><button class="checkout-button" id="checkout-button">Finalizar compra</button></div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 
 </body>
 </html>

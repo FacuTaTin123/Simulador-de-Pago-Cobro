@@ -1,7 +1,10 @@
-<nav>
-    <a href="/">Home</a> 
-    <a href="/contacto">Contacto</a> 
-    <a href="/curiosidades">Curiosidades</a> 
-    <a href="/info">Info Flask</a>
-</nav>
-<hr>
+<header class="site-header">
+    <nav class="nav container">
+        <a class="brand" href="/">Steam-<span>-Balancini</span></a>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}#catalogo">Catálogo</a><a href="{{ url_for('products') if current_user.is_authenticated else url_for('login') }}">Gestionar productos</a>
+            {% if current_user.is_authenticated %}<a href="{{ url_for('logout') }}">Salir</a>{% else %}<a href="{{ url_for('login') }}">Ingresar</a>{% endif %}
+            <a class="cart-button" href="{{ url_for('cart') }}">Carrito</a>
+        </div>
+    </nav>
+</header>
