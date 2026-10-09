@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Pago aprobado | Pixel Store{% endblock %}
+{% block body %}
+<section class="simple-page">
+  <h1>¡Pago aprobado! 🎮</h1>
+  <p>Pedido #{{ order.id }} · Operación Mercado Pago {{ payment.mp_payment_id }}</p>
+  <p>Método: {{ payment.method }}</p>
+  <h2>Total abonado: ${{ payment.amount }}</h2>
+  <a class="primary-link" href="{{ url_for('home') }}">Volver a la tienda</a>
+</section>
+{% endblock %}

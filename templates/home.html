@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Comprame juegos | Videojuegos{% endblock %}
 {% block body %}
-<section class="hero" id="novedades"><div><p class="eyebrow">JUEGUITOS JEJEJE</p><h1>Cositas chulas<br>compraaaaaa</h1><p class="hero-text">no hay dls</p><a class="primary-link" href="#catalogo">Ver todito</a></div><div class="hero-art" aria-hidden="true"><span>🎮</span><p>Juga<br>Todo</p></div></section>
+<section class="hero" id="novedades"><div><p class="eyebrow">JUEGUITOS JEJEJE</p><h1>Cositas chulas<br>compraaaaaa</h1><p class="hero-text">no hay dls</p><a class="primary-link" href="#catalogo">Ver todito</a></div>
+<div class="hero-art" aria-hidden="true"><span>🎮</span><p>Juga<br>Todo</p></div></section>
+
 <section class="catalog-section" id="catalogo"><div class="section-title"><div><p class="eyebrow">CATÁLOGO</p><h2>Elegí tu juego</h2></div><p>Precios de ejemplo</p></div><div class="game-grid">
 {% for product in products %}
-<article class="game-card"><div class="game-cover {% if loop.index0 % 4 == 0 %}cover-space{% elif loop.index0 % 4 == 1 %}cover-race{% elif loop.index0 % 4 == 2 %}cover-forest{% else %}cover-puzzle{% endif %}"><span>{{ product.name|upper }}</span></div><div class="game-info"><p class="genre">{{ product.genre }}</p><h3>{{ product.name }}</h3><p class="price">${{ '{:,.0f}'.format(product.price).replace(',', '.') }}</p><form method="post" action="{{ url_for('add_to_cart', product_id=product.id) }}"><button class="add-button">Agregar al carrito</button></form></div></article>
+
+<article class="game-card"><div class="game-cover {% if loop.index0 % 4 == 0 %}cover-space{% elif loop.index0 % 4 == 1 %}cover-race{% elif loop.index0 % 4 == 2 %}cover-forest{% else %}cover-puzzle{% endif %}">
+<span>{{ product.name|upper }}</span></div><div class="game-info"><p class="genre">{{ product.genre }}</p><h3>{{ product.name }}</h3><p class="price">${{ '{:,.0f}'.format(product.price).replace(',', '.') }}</p>
+<form method="post" action="{{ url_for('add_to_cart', product_id=product.id) }}"><button class="add-button">Agregar al carrito</button></form></div></article>
+
 {% else %}<p>Aún no hay productos. Iniciá sesión y agregá el primero.</p>{% endfor %}
 </div></section>
 {% endblock %}

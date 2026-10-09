@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Pago | Pixel Store{% endblock %}
+{% block body %}
+<section class="simple-page">
+  <h1>Resumen del pedido #{{ order.id }}</h1>
+
+  {% for item in order.items %}
+    <div class="product-row">
+      <span><strong>{{ item.product.name }}</strong><br>{{ item.quantity }} × ${{ item.unit_price }}</span>
+    </div>
+  {% endfor %}
+  <h2>Total: ${{ order.total }}</h2>
+
+  <form method="post" action="{{ url_for('pay_with_mercadopago', order_id=order.id) }}">
+    <button class="primary-link">Pagar con Mercado Pago</button>
+  </form>
+
+  <small>Serás redirigido a Mercado Pago para completar el pago de forma segura.</small>
+</section>
+{% endblock %}
