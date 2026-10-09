@@ -1,4 +1,4 @@
-# Pixel Store — Simulador de pago/cobro
+# Facundo Balancini — Simulador de pago/cobro
 
 Aplicación educativa construida con Python y Flask. Implementa catálogo de videojuegos, autenticación, gestión de productos, carrito y creación de pedidos. El módulo de pago queda preparado para que lo desarrolles.
 
