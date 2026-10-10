@@ -1,2 +1,1 @@
-Comprador usuario TESTUSER2200275136735831085
-Comprador contraseña 3GKouwZqMr
+
